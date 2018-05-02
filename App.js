@@ -1,15 +1,32 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
+import { TabNavigator, TabBarBottom } from 'react-navigation';
+
+import { tabConfig } from './src/navigation/tabConfig';
+
+import PersonalScreen from './src/components/Personal/PersonalScreen';
+
+import MainStack from './src/navigation/MainNavigator';
+
+const RootNavigation = TabNavigator(
+  {
+    Main: { screen : MainStack },
+    Personal: { screen: PersonalScreen },
+  },
+  {
+    navigationOptions: tabConfig,
+    tabBarOptions: {
+      activeTintColor: '#1c5d99',
+      inactiveTintColor: '#8e8e8e',
+    },
+    tabBarComponent: TabBarBottom,
+    tabBarPosition: 'bottom',
+    animationEnabled: false,
+    swipeEnabled: false,
   }
-}
+);
+
 
 const styles = StyleSheet.create({
   container: {
@@ -19,3 +36,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default RootNavigation;
