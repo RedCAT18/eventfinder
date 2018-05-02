@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 
+import reducer from './src/reducer';
 import { tabConfig } from './src/navigation/tabConfig';
 
 import PersonalScreen from './src/components/Personal/PersonalScreen';
@@ -37,4 +40,16 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RootNavigation;
+
+class App extends Component {
+  render() {
+    const store = createStore(reducer);
+    return (
+      <Provider store={store}>
+        <RootNavigation/>
+      </Provider>
+    );
+  }
+}
+
+export default App;
