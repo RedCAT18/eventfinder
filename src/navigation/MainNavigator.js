@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import MainScreen from '../components/Main/MainScreen';
+import MainScreen from '../components/MainScreen';
 import AddScreen from '../components/Add/AddScreen';
 
 const MainStack = StackNavigator(

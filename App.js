@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 
 import reducer from './src/reducer';
+
 import { tabConfig } from './src/navigation/tabConfig';
 
 import PersonalScreen from './src/components/Personal/PersonalScreen';
-
 import MainStack from './src/navigation/MainNavigator';
 
 const RootNavigation = TabNavigator(
@@ -30,7 +32,6 @@ const RootNavigation = TabNavigator(
   }
 );
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -41,9 +42,10 @@ const styles = StyleSheet.create({
 });
 
 
+let store = createStore(reducer, applyMiddleware(thunk));
+
 class App extends Component {
-  render() {
-    const store = createStore(reducer);
+  render() {    
     return (
       <Provider store={store}>
         <RootNavigation/>
