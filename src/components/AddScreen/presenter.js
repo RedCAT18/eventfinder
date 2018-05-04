@@ -9,20 +9,23 @@ class AddScreen extends Component {
     title: 'Add New Event'
   };
 
-  // state = {
-  //   title: '',
-  //   description: ''
-  // };
-
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <Text style={styles.text}>Add Screen</Text>
-        <Input label={'Title'} placeholder={'Title'} value={this.props.title} />
+        <Input
+          label={'Title'}
+          placeholder={'Title'}
+          value={this.props.title}
+          onChangeText={value => this.props.inputForm({ prop: 'title', value })}
+        />
         <Input
           label={'Description'}
           placeholder={'Description'}
           value={this.props.description}
+          onChangeText={value =>
+            this.props.inputForm({ prop: 'description', value })
+          }
         />
       </KeyboardAvoidingView>
     );

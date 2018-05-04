@@ -86,7 +86,8 @@ function applyInputForm(state, payload) {
 
 //export action creators
 const actionCreators = {
-  showEventList
+  showEventList,
+  inputForm
 };
 
 export { actionCreators };

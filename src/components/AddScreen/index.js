@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import AddScreen from './presenter';
-import { actionCreators as eventActions } from '../../reducer';
+import { actionCreators as formActions } from '../../reducer';
 
 function mapStateToProps(state) {
   const { title, description, date, amount } = state.form;
@@ -12,7 +12,9 @@ function mapStateToProps(state) {
 
 //dispatch sending action to reducer
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    inputForm: bindActionCreators(formActions.inputForm, dispatch)
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddScreen);
