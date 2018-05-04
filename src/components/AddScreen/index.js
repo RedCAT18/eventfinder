@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import ListItem from './presenter';
+import AddScreen from './presenter';
 import { actionCreators as eventActions } from '../../reducer';
 
 function mapStateToProps(state) {
-  const { id, title } = state.event.event_list;
+  const { title, description, date, amount } = state.form;
 
-  return { id, title };
+  return { title, description, date, amount };
 }
 
 //dispatch sending action to reducer
@@ -15,4 +15,4 @@ function mapDispatchToProps(dispatch) {
   return {};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListItem);
+export default connect(mapStateToProps, mapDispatchToProps)(AddScreen);

@@ -1,19 +1,9 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Platform
-} from 'react-native';
-
-
+import { View, Text, StyleSheet, Platform } from 'react-native';
 
 const Item = ({ children, onPress }) => {
   return (
-    <View 
-      style={styles.container}
-      onPressOut={onPress}
-    >
+    <View style={styles.container} onPressOut={onPress}>
       {children}
     </View>
   );
@@ -28,15 +18,16 @@ const styles = StyleSheet.create({
       ios: {
         shadowColor: '#000',
         shadowOpacity: 0.2,
-        shadowOffset: {width: 0, height: 0},
-        shadowRadius: 2,
+        shadowOffset: { width: 0, height: 0 },
+        shadowRadius: 2
       },
       android: {
-        elevation: 1,
+        elevation: 1
       }
     }),
     padding: 10,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    marginBottom: 10
   }
 });
 

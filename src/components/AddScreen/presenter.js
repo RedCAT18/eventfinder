@@ -1,37 +1,35 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  KeyboardAvoidingView
-} from 'react-native';
+import { View, Text, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
 import { Input } from '../commons';
 
 class AddScreen extends Component {
   static navigationOptions = {
-    title: 'Add New Event',
+    title: 'Add New Event'
   };
 
-  state = {
-    title: ''
-  };
+  // state = {
+  //   title: '',
+  //   description: ''
+  // };
 
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <Text style={styles.text}>Add Screen</Text>
+        <Input label={'Title'} placeholder={'Title'} value={this.props.title} />
         <Input
-          label={'Title'}
-          placeholder={'Title'}
-          value={this.state.title}
+          label={'Description'}
+          placeholder={'Description'}
+          value={this.props.description}
         />
       </KeyboardAvoidingView>
     );
   }
 }
 
-const styles= StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -44,4 +42,4 @@ const styles= StyleSheet.create({
   }
 });
 
-export default AddScreen;
+export default withNavigation(AddScreen);
