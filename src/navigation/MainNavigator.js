@@ -4,11 +4,13 @@ import { StackNavigator } from 'react-navigation';
 
 import MainScreen from '../components/MainScreen';
 import AddScreen from '../components/AddScreen';
+import DetailScreen from '../components/DetailScreen';
 
 const MainStack = StackNavigator(
   {
     Main: { screen: MainScreen },
-    Add: { screen: AddScreen }
+    Add: { screen: AddScreen },
+    Detail: { screen: DetailScreen }
   },
   {
     initialRouteName: 'Main',

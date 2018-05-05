@@ -44,7 +44,8 @@ const INITIAL_FORM_STATE = {
   title: '',
   description: '',
   date: '',
-  amount: ''
+  headcount: '',
+  deadline: ''
 };
 
 //reducers

@@ -5,9 +5,9 @@ import AddScreen from './presenter';
 import { actionCreators as formActions } from '../../reducer';
 
 function mapStateToProps(state) {
-  const { title, description, date, amount } = state.form;
+  const { title, description, date, headcount, deadline } = state.form;
 
-  return { title, description, date, amount };
+  return { title, description, date, headcount, deadline };
 }
 
 //dispatch sending action to reducer

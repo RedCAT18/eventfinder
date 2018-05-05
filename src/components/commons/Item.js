@@ -11,7 +11,7 @@ const Item = ({ children, onPress }) => {
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 5,
+    flexDirection: 'column',
     borderWidth: 1,
     borderColor: '#a4a4a4',
     ...Platform.select({
