@@ -1,24 +1,17 @@
 import React from 'react';
-import {
-  TouchableOpacity,
-  Text,
-  StyleSheet,
-} from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const Button = ({onPress, children}) => {
+const Button = ({ onPress, children }) => {
   return (
-    <TouchableOpacity
-      onPressOut={onPress}
-      style={styles.button}
-    >
+    <TouchableOpacity onPressOut={onPress} style={styles.button}>
       <Text style={styles.text}>{children}</Text>
     </TouchableOpacity>
   );
 };
 
-const styles= StyleSheet.create({
+const styles = StyleSheet.create({
   button: {
-    width: '80%',
+    width: '90%',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
@@ -29,7 +22,7 @@ const styles= StyleSheet.create({
   text: {
     color: '#fff',
     fontWeight: '600',
-    fontSize: 20,
+    fontSize: 20
   }
 });
 

@@ -13,7 +13,7 @@ class DetailScreen extends Component {
     const title = params ? params.event.title : ' test title ';
     // console.log(params.event);
     return (
-      <View>
+      // <View>
         <Item>
           <View style={styles.container}>
             <Text style={styles.title}> Detail Screen </Text>
@@ -25,7 +25,7 @@ class DetailScreen extends Component {
             </Scrap>
           </View>
         </Item>
-      </View>
+      // </View>
     );
   }
 }

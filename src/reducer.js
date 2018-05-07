@@ -4,6 +4,7 @@ import { combineReducers } from 'redux';
 
 const SHOW_EVENT_LIST = 'show_event_list';
 const INPUT_FORM = 'input_form';
+const ADD_EVENT = 'add_event';
 
 //action creators
 
@@ -30,6 +31,15 @@ function inputForm({ prop, value }) {
   return {
     type: INPUT_FORM,
     payload: { prop, value }
+  };
+}
+
+function addEvent(formData) {
+  //send data to server
+  //...
+  return {
+    type: ADD_EVENT,
+    payload: formData
   };
 }
 
@@ -62,7 +72,9 @@ function eventReducer(state = INITIAL_LIST_STATE, action) {
 function formReducer(state = INITIAL_FORM_STATE, action) {
   switch (action.type) {
     case INPUT_FORM:
-      return { ...state, [action.payload.prop]: action.payload.value };
+      return applyInputForm(state, action.payload);
+    case ADD_EVENT:
+      return state;
     default:
       return state;
   }
@@ -82,7 +94,7 @@ function applyShowEventList(state, data) {
 }
 
 function applyInputForm(state, payload) {
-  return { ...state, [action.payload.prop]: action.payload.value };
+  return { ...state, [payload.prop]: payload.value };
 }
 
 //export action creators

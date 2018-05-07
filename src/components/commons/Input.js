@@ -7,6 +7,7 @@ const Input = ({
   label,
   value,
   placeholder,
+  multiline,
   secureTextEntry = false,
   onChangeText
 }) => {
@@ -14,6 +15,7 @@ const Input = ({
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>
       <TextInput
+        multiline={multiline}
         secureTextEntry={secureTextEntry}
         value={value}
         style={styles.input}
@@ -29,10 +31,7 @@ const Input = ({
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 1,
-    borderColor: '#eee',
     padding: 5,
-    marginBottom: 10,
     width: width * 0.8
   },
   label: {
