@@ -7,6 +7,8 @@ import {
   ScrollView,
   Dimensions
 } from 'react-native';
+import { MapView } from 'expo';
+
 import { withNavigation } from 'react-navigation';
 import DatePicker from 'react-native-datepicker';
 
@@ -62,6 +64,16 @@ class AddScreen extends Component {
           </Scrap>
           <Scrap>
             <Input
+              label={'Location'}
+              placeholder={'Location'}
+              value={this.props.location}
+              onChangeText={value =>
+                this.props.inputForm({ prop: 'location', value })
+              }
+            />
+          </Scrap>
+          <Scrap>
+            <Input
               label={'Headcount'}
               placeholder={'Headcount'}
               value={this.props.headcount}
@@ -91,7 +103,6 @@ class AddScreen extends Component {
   }
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -118,6 +129,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20
+  },
+  map: {
+    width: width - 20
   }
 });
 

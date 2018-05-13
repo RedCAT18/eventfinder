@@ -1,23 +1,23 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
-import { TabNavigator, TabBarBottom } from 'react-navigation'
+import { TabNavigator, TabBarBottom } from 'react-navigation';
 
-import reducer from './src/reducer'
+import reducer from './src/reducer';
 
-import { tabConfig } from './src/navigation/tabConfig'
+import { tabConfig } from './src/navigation/tabConfig';
 
-import AuthNavigation from './src/navigation/AuthNavigation'
-import MainStack from './src/navigation/MainNavigator'
+import AuthNavigator from './src/navigation/AuthNavigator';
+import MainStack from './src/navigation/MainNavigator';
 
 const RootNavigation = TabNavigator(
   {
     Main: { screen: MainStack },
-    Auth: { screen: AuthNavigation }
+    Auth: { screen: AuthNavigator }
   },
   {
     navigationOptions: tabConfig,
@@ -30,18 +30,18 @@ const RootNavigation = TabNavigator(
     animationEnabled: false,
     swipeEnabled: false
   }
-)
+);
 
-let store = createStore(reducer, applyMiddleware(thunk))
+let store = createStore(reducer, applyMiddleware(thunk));
 
 class App extends Component {
-  render () {
+  render() {
     return (
       <Provider store={store}>
         <RootNavigation />
       </Provider>
-    )
+    );
   }
 }
 
-export default App
+export default App;

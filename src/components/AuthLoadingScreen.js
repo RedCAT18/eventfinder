@@ -16,7 +16,7 @@ class AuthLoadingScreen extends Component {
   _boorstrapAsync = async () => {
     AsyncStorage.removeItem('userToken');
     const userToken = await AsyncStorage.getItem('usertoken');
-    this.props.navigation.navigate(userToken ? 'Personal' : 'Auth');
+    this.props.navigation.navigate(userToken ? 'Personal' : 'Sign');
   };
 
   render() {

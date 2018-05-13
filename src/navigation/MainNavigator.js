@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import MainScreen from '../components/MainScreen';
